@@ -5,6 +5,7 @@ const SectionSt = styled.section`
     justify-content: center;
     align-items: center;
     width: 100vw;
+    height: 100vh;
     background-image: url('/img/mountains.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -52,7 +53,7 @@ const SectionSt = styled.section`
     padding: 6px 0;
     border: none;
     border-radius: 4px;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
 }
 `
 
