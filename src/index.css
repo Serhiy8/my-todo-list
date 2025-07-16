@@ -33,3 +33,13 @@ h1, h2, h3, h4, h5, h6 {
 .isNotActive {
   display: none;
 }
+
+input, button, textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  color: #000;  /* темний текст */
+  background-color: #fff; /* білий фон */
+}
+input::placeholder {
+  color: #888; /* видно поле введення */
+}
