@@ -37,4 +37,9 @@ h1, h2, h3, h4, h5, h6 {
 input, button, textarea {
   -webkit-appearance: none;
   appearance: none;
+  color: var(--textDark);  /* темний текст */
+  background-color: var(--white); /* білий фон */
+}
+input::placeholder {
+  color: var(--textDark); /* видно поле введення */
 }
