@@ -51,6 +51,7 @@ const SectionSt = styled.section`
 
 & div form button {
     background-color: ${({theme}) => theme.colors.primary};
+    color: ${({theme}) => theme.colors.textDark};
     padding: 6px 0;
     border: none;
     border-radius: 4px;
