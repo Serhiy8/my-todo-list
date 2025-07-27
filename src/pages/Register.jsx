@@ -3,7 +3,6 @@ import { SectionSt, Text, TextEmail, TextPassword } from "./Auth.styled";
 import {useForm} from "../utils/utils";
 import { signup } from "../supabaseServices/supabaseClient";
 import { toast } from "react-toastify";
-import { BlurContainer } from "../utils/Styles.styled";
 
 const Register = () =>{
 
