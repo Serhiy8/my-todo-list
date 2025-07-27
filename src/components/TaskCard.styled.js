@@ -50,6 +50,7 @@ const EditSvg = styled.svg`
     width: 30px;
     height: 30px;
     transition: stroke 0.3s;
+    fill: none;
     stroke: ${({theme}) => theme.colors.primary};
     &.active,
     &:hover,
