@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { SectionSt, Text, TextEmail, TextPassword } from "./Auth.styled";
+import { SectionSt, Text, TextEmail, TextPassword, SvgSt } from "./Auth.styled";
 import {useForm} from "../utils/utils";
 import { signup } from "../supabaseServices/supabaseClient";
 import { toast } from "react-toastify";
-import { BlurContainer } from "../utils/Styles.styled";
+import { GoMail, GoLock } from "react-icons/go";
 
 const Register = () =>{
 
@@ -34,13 +34,16 @@ const Register = () =>{
             <form onSubmit={handleSubmit}>
                 <label>                    
                     <input type="email" name="email" onChange={handleChange}/>
-                    <TextEmail $value={value.email}>Username</TextEmail>
+                    <TextEmail $value={value.email}>Email</TextEmail>
+                    <SvgSt><GoMail /></SvgSt>
                 </label>
                 <label>                    
                     <input type="password" name="password" onChange={handleChange}/>
                     <TextPassword $value={value.password}>Password</TextPassword>
+                    <SvgSt><GoLock /></SvgSt>
                 </label>
                 <button type="submit">Register</button>
+                
             </form>
             <Text>Already have an account? <Link to='/'>Login</Link></Text>
         </div>

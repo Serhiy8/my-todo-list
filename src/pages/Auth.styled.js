@@ -36,7 +36,7 @@ const SectionSt = styled.section`
 
 & div form label input {
     background-color: transparent;
-    padding: 6px 12px;
+    padding: 6px 22px 6px 12px;
     border: none;
     outline: none;
     border-bottom: 1px solid ${({theme}) => theme.colors.primary};
@@ -79,4 +79,10 @@ const Text = styled.p`
     }
 `
 
-export {SectionSt,TextEmail, TextPassword , Text}
+const SvgSt = styled.span`
+    position: absolute;
+    top: 3px;
+    right: 0;
+`
+
+export {SectionSt,TextEmail, TextPassword , Text, SvgSt}

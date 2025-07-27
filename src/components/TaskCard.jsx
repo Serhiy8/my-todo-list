@@ -19,7 +19,6 @@ const TaskCard = ({dataTask, statusChange}) => {
     
     const handleChecked = (e) =>{
         const {checked, id} = e.target;
-        console.log(id)
         if(!checked && !id){
             return;
         }
