@@ -1,4 +1,3 @@
-import { BlurContainer } from "../utils/Styles.styled";
 import ChartStats from "./ChartStats";
 import { Thumb, ChartStatsThumb, StatsThumb, Container } from "./Sidebar.styled";
 

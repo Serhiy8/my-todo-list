@@ -6,5 +6,6 @@ const SectionDB = styled.section`
     background-image: url('/img/mountains.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 `
 export {SectionDB}
