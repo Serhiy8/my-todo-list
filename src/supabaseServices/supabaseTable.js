@@ -30,4 +30,16 @@ const updateTask = async (task, id) => {
   return res;
 }
 
-export {getTasks, addTask, updateTask};
+const filterTasks = async (status) => {
+   const { data, error } = await supabase
+  .from('todolist')
+  .select()
+  .neq('status', status)
+  if(error){
+    return error;
+  }
+  return data;
+}
+
+export {getTasks, addTask, updateTask, filterTasks};
+

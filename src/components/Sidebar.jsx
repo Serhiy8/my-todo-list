@@ -1,6 +1,6 @@
 import { BlurContainer } from "../utils/Styles.styled";
 import ChartStats from "./ChartStats";
-import { Thumb, ChartStatsThumb, StatsThumb } from "./Sidebar.styled";
+import { Thumb, ChartStatsThumb, StatsThumb, Container } from "./Sidebar.styled";
 
 const Sidebar = ({dataTask}) => {
 
@@ -13,7 +13,7 @@ const taskCompleted = dataTask.reduce((acc, el) => {
 }, 0);
 
     return(
-    <BlurContainer>
+    <Container>
         <p>Here are the statistics on your tasks.</p>
         <Thumb>
             <StatsThumb>
@@ -24,7 +24,7 @@ const taskCompleted = dataTask.reduce((acc, el) => {
                 <ChartStats  completed={taskCompleted} total={taskQuantity}/>
             </ChartStatsThumb>
         </Thumb>
-    </BlurContainer>
+    </Container>
 )
 }
 

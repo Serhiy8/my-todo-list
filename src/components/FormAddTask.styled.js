@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+const Thumb = styled.div`
+    padding-bottom: 40px;
+`
+
 const Label = styled.label`
     display: flex;
     flex-direction: column;
@@ -39,4 +43,4 @@ const Label = styled.label`
     }
 `
 
-export {Label}
+export {Thumb, Label}

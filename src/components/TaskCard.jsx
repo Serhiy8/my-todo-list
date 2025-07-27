@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BlurContainer } from "../utils/Styles.styled";
 import { 
+    Thumb,
     TaskList,
     TaskListItem, 
     TaskText, 
@@ -19,6 +19,7 @@ const TaskCard = ({dataTask, statusChange}) => {
     
     const handleChecked = (e) =>{
         const {checked, id} = e.target;
+        console.log(id)
         if(!checked && !id){
             return;
         }
@@ -37,7 +38,7 @@ const TaskCard = ({dataTask, statusChange}) => {
         }
     
     return(
-        <BlurContainer>
+        <Thumb>
             <TaskList>
                 {dataTask.map((el) => {
                     const addTime = el.created_at;
@@ -62,7 +63,7 @@ const TaskCard = ({dataTask, statusChange}) => {
                                 <TaskTextLabel>                                    
                                     <input type="checkbox" id={el.id} onChange={handleChecked} checked={el.status}/>
                                     <svg>
-                                        <path d="m 4.2666667,5.73333 -0.9333334,0.93334 3,3 L 13,3 12.066667,2.06667 6.3333333,7.8 4.2666667,5.73333 Z m 7.4000003,5.93334 -9.3333337,0 0,-9.33334 L 9,2.33333 9,1 2.3333333,1 C 1.6,1 1,1.6 1,2.33333 l 0,9.33334 C 1,12.4 1.6,13 2.3333333,13 l 9.3333337,0 C 12.4,13 13,12.4 13,11.66667 l 0,-5.33334 -1.333333,0 0,5.33334 z"/>
+                                        <use href="/img/checkbox.svg"></use>
                                     </svg>
                                 </TaskTextLabel>
                             </TaskTextContainer>
@@ -70,7 +71,7 @@ const TaskCard = ({dataTask, statusChange}) => {
                         </TaskListItem>)
                     })}
             </TaskList>
-        </BlurContainer>
+        </Thumb>
     )
 }
 

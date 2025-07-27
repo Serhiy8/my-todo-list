@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
+const Thumb = styled.div`
+    padding-top: 40px;
+    padding-bottom: 40px;
+`
+
 const TaskList = styled.ul`
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    gap: 20px;    
+    text-align: center;
 ` 
 const TaskListItem = styled.li`
     position: relative;
@@ -82,4 +86,4 @@ const EditBtn = styled.button`
     border-radius: 8px;
 `
 
-export {TaskList, TaskListItem, TaskText, TaskTextContainer, TaskTextLabel, EditSvg, EditTextarea, EditContainer, EditBtn}
+export {Thumb, TaskList, TaskListItem, TaskText, TaskTextContainer, TaskTextLabel, EditSvg, EditTextarea, EditContainer, EditBtn}

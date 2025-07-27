@@ -24,7 +24,6 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   width: fit-content;
   margin: 0 auto;
-  padding-bottom: 40px;
 }
 
 .isActive {
@@ -32,14 +31,4 @@ h1, h2, h3, h4, h5, h6 {
 }
 .isNotActive {
   display: none;
-}
-
-input, button, textarea {
-  -webkit-appearance: none;
-  appearance: none;
-  color: var(--textDark);  /* темний текст */
-  background-color: var(--white); /* білий фон */
-}
-input::placeholder {
-  color: var(--textDark); /* видно поле введення */
 }

@@ -4,35 +4,16 @@ import Sidebar from "../components/Sidebar"
 import TaskCard from "../components/TaskCard"
 import FormAddTask from "../components/FormAddTask"
 import { SectionDB } from "./Dashboard.styled"
-import { getTasks, addTask, updateTask } from "../supabaseServices/supabaseTable"
+import { getTasks, addTask, updateTask, filterTasks } from "../supabaseServices/supabaseTable"
 import SessionContext from "../supabaseServices/sessionContext"
-
-
-const initialState = [{
-    id: 'id-1',
-    user_id: 'user-1',
-    task: 'learn react',
-    status: false,
-},{
-    id: 'id-2',
-    user_id: 'user-1',
-    task: 'learn js',
-    status: true,
-},{
-    id: 'id-3',
-    user_id: 'user-1',
-    task: 'learn HTML',
-    status: true,
-},{
-    id: 'id-4',
-    user_id: 'user-1',
-    task: 'learn node.js',
-    status: false,
-}]
+import FilterBtns from "../components/FilterBtns"
+import { useSearchParams } from "react-router-dom"
 
 const Dashboard = () => {
     const {user} = useContext(SessionContext);
-    const [dataTask, setDataTask] = useState(initialState || []);
+    const [dataTask, setDataTask] = useState([]);
+    const [searchParams, setSearchParams] = useSearchParams();
+    
 
     const fetchData = async () => {
             const data = await getTasks();
@@ -42,6 +23,11 @@ const Dashboard = () => {
             }
             const filterById = data.sort((firstEl, secondEl) => secondEl.id - firstEl.id);
             setDataTask(filterById);
+        }
+
+     const activeTasks = async (status) => {
+            const data = await filterTasks(status);
+            setDataTask(data)
         }
 
     useEffect(() => {        
@@ -61,10 +47,40 @@ const Dashboard = () => {
     }
 
     const onStatusChange = async (updateValue, id) => {
-        const res = await updateTask(updateValue, id);
-        if(res.status === 204){
-            fetchData()
+            const res = await updateTask(updateValue, id);
+            if(res.status === 204 && searchParams.size === 0){
+                fetchData();
+            }
+            if(res.status === 204 && searchParams.get("status") === "active"){
+                activeTasks(true);
+            }
+            if(res.status === 204 && searchParams.get("status") === "completed"){
+                activeTasks(false);
+            }
     }
+
+
+
+    const onFilterBtnClick = (e) => {
+        const key = e.target.textContent;
+
+        switch (key) {
+            case "All":
+                setSearchParams({});
+                fetchData();
+                break;
+            case "Active":
+                setSearchParams({status: "active"});              
+                activeTasks(true);
+                break;
+            case "Completed":
+                setSearchParams({status: "completed"});               
+                activeTasks(false);
+                break;
+        
+            default:
+                break;
+        }
     }
 
     return(
@@ -73,6 +89,7 @@ const Dashboard = () => {
                 <Header />
                 <Sidebar dataTask={dataTask}/>
                 <FormAddTask onSubmit={takeNewTask}/>
+                <FilterBtns isActive={onFilterBtnClick}/>
                 <TaskCard dataTask={dataTask} statusChange={onStatusChange}/>
             </div>
         </SectionDB>

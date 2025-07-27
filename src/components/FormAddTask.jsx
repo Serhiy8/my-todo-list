@@ -1,7 +1,6 @@
-import SessionContext from "../supabaseServices/sessionContext";
 import { Label } from "./FormAddTask.styled";
-import { BlurContainer } from "../utils/Styles.styled";
 import { useState } from "react";
+import { Thumb } from "./FormAddTask.styled";
 
 const FormAddTask = ({onSubmit}) => {
     
@@ -18,7 +17,7 @@ const FormAddTask = ({onSubmit}) => {
     }
 
     return(
-        <BlurContainer>
+        <Thumb>
             <form onSubmit={handleSubmit}>
                 <Label>
                     <div>
@@ -28,7 +27,7 @@ const FormAddTask = ({onSubmit}) => {
                     <button type="submit">Add Task</button>
                 </Label>
             </form>
-        </BlurContainer>
+        </Thumb>
     )
 }
 

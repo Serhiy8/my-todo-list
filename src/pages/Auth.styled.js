@@ -36,7 +36,7 @@ const SectionSt = styled.section`
 
 & div form label input {
     background-color: transparent;
-    padding: 6px 22px 6px 12px;
+    padding: 6px 12px;
     border: none;
     outline: none;
     border-bottom: 1px solid ${({theme}) => theme.colors.primary};
@@ -53,7 +53,7 @@ const SectionSt = styled.section`
     padding: 6px 0;
     border: none;
     border-radius: 4px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
 }
 `
 
@@ -79,10 +79,4 @@ const Text = styled.p`
     }
 `
 
-const SvgSt = styled.span`
-    position: absolute;
-    top: 3px;
-    right: 0;
-`
-
-export {SectionSt,TextEmail, TextPassword , Text, SvgSt}
+export {SectionSt,TextEmail, TextPassword , Text}
