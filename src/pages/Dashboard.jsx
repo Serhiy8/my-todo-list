@@ -12,8 +12,7 @@ import { useSearchParams } from "react-router-dom"
 const Dashboard = () => {
     const {user} = useContext(SessionContext);
     const [dataTask, setDataTask] = useState([]);
-    const [searchParams, setSearchParams] = useSearchParams();
-    
+    const [searchParams, setSearchParams] = useSearchParams();    
 
     const fetchData = async () => {
             const data = await getTasks();
@@ -30,14 +29,24 @@ const Dashboard = () => {
             setDataTask(data)
         }
 
-    useEffect(() => {        
-        fetchData();
-    },[])
+    useEffect(() => {
+        if(searchParams.size === 0){
+            fetchData();
+        }
+        if(searchParams.get("status") === "active"){
+            setSearchParams({status: "active"}); 
+                activeTasks(true);
+        }
+        if(searchParams.get("status") === "completed"){
+            setSearchParams({status: "completed"}); 
+                activeTasks(false);
+        }      
+        
+    },[searchParams, setSearchParams])
 
     const takeNewTask = async (task) => {
         const newTask = {user_id: user.id, task: task, status: false}
         const {error, status} = await addTask(newTask);
-        console.log(error, status)
         if(error){
             console.log(error.message)
         }

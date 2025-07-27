@@ -37,6 +37,7 @@ const SectionSt = styled.section`
 & div form label input {
     background-color: transparent;
     padding: 6px 12px;
+    border-radius: 0;
     border: none;
     outline: none;
     border-bottom: 1px solid ${({theme}) => theme.colors.primary};
